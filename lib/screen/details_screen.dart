@@ -41,28 +41,56 @@ class _DetailsScreenState extends State<DetailsScreen> {
         title: const Text("Details"),
       ),
       body: SizedBox.expand(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Email'),
-            Text(email!),
-            const Text('Address'),
-            Text(address!),
-            ElevatedButton(
-              onPressed: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                await prefs.clear();
-                if (context.mounted) {}
-                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-                  builder: (context) {
-                    return const LoginScreen();
-                  },
-                ), (route) => false);
-              },
-              child: const Text('Logout'),
-            )
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const Text('Email'),
+              SizedBox(
+                height: 8,
+              ),
+              Text(email!),
+              SizedBox(
+                height: 8,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              const Text('Address'),
+              SizedBox(
+                height: 8,
+              ),
+              Text(address!),
+              SizedBox(
+                height: 8,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  await prefs.clear();
+                  if (context.mounted) {}
+                  Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const LoginScreen();
+                    },
+                  ), (route) => false);
+                },
+                child: const Text('Logout'),
+              )
+            ],
+          ),
         ),
       ),
     );
